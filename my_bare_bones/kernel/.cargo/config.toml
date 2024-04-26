@@ -1,0 +1,8 @@
+[build]
+target = "i686-bare_metal_target.json"
+
+[unstable]
+build-std = ["core", "compiler_builtins"]
+
+[target.i686-bare_metal_target]
+rustflags = ["-C", "linker=ld.lld", "-C", "link-args= --nmagic --entry=kernel_entry --section-start=.kernel_entry=0x7e00 -z nodefaultlib -z norelro"]
